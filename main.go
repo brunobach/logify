@@ -6,6 +6,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/brunobach/logify/ui"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
@@ -78,7 +79,11 @@ func main() {
 	api.GET("/logs/requests", getItems)
 	api.GET("/logs/requests/stats", getRequestCountsHandler)
 
-	e.Static("/", "ui/dist")
+	e.GET(
+		"*",
+		echo.StaticDirectoryHandler(ui.DistDirFS, false),
+		middleware.Gzip(),
+	)
 
 	e.Logger.Fatal(e.Start(":8080"))
 

@@ -14,7 +14,6 @@ FROM debian:buster-slim
 
 # Copie o binário compilado do estágio anterior
 COPY --from=builder /app/logify /usr/local/bin/
-COPY ui /app/ui
 # Exponha a porta na qual o servidor da sua aplicação está ouvindo
 EXPOSE 8080
 
