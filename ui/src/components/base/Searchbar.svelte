@@ -37,21 +37,6 @@
         dispatch("submit", value);
     }
 
-    async function loadFilterComponent() {
-        if (filterComponent || isFilterComponentLoading) {
-            return; // already loaded or in the process
-        }
-
-        isFilterComponentLoading = true;
-
-        filterComponent = (await import("@/components/base/FilterAutocompleteInput.svelte")).default;
-
-        isFilterComponentLoading = false;
-    }
-
-    onMount(() => {
-        loadFilterComponent();
-    });
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->

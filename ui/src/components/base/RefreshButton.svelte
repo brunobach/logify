@@ -1,11 +1,7 @@
 <script>
     import { createEventDispatcher, onMount } from "svelte";
-    import tooltip from "@/actions/tooltip";
 
     const dispatch = createEventDispatcher();
-
-    let tooltipData = { text: "Refresh", position: "right" };
-    export { tooltipData as tooltip };
 
     let classes = "";
     export { classes as class };
@@ -22,7 +18,7 @@
         clearTimeout(refreshTimeoutId);
         refreshTimeoutId = setTimeout(() => {
             refreshTimeoutId = null;
-            tooltipData = oldTooltipData;
+
         }, 150);
     }
 
@@ -36,7 +32,6 @@
     aria-label="Refresh"
     class="btn btn-transparent btn-circle {classes}"
     class:refreshing={refreshTimeoutId}
-    use:tooltip={tooltipData}
     on:click={refresh}
 >
     <i class="ri-refresh-line" />

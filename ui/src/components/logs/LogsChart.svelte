@@ -115,7 +115,7 @@
                     x: {
                         type: "time",
                         time: {
-                            unit: "hour",
+                            unit: "minute",
                             tooltipFormat: "DD h a",
                         },
                         grid: {

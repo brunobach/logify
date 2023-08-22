@@ -1,7 +1,6 @@
 <script>
     import { pageTitle } from "@/stores/app";
     import CommonHelper from "@/utils/CommonHelper";
-    import Field from "@/components/base/Field.svelte";
     import PageWrapper from "@/components/base/PageWrapper.svelte";
     import Searchbar from "@/components/base/Searchbar.svelte";
     import RefreshButton from "@/components/base/RefreshButton.svelte";
