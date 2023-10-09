@@ -71,11 +71,12 @@ func main() {
 
 	e := echo.New()
 	e.Use(middleware.CORS())
-	e.Use(countRequests)
-	go startRequestCountUpdater()
+
+	logGroup := e.Group("/api/log")
+	logGroup.Use(countRequests)
+	logGroup.POST("", logar)
 
 	api := e.Group("/api")
-	api.POST("/log", logar)
 	api.GET("/logs/requests", getItems)
 	api.GET("/logs/requests/stats", getRequestCountsHandler)
 
@@ -155,7 +156,7 @@ func logar(c echo.Context) error {
 		Method:    c.Request().Method,
 		Status:    http.StatusOK,
 		UserIP:    c.RealIP(),
-		RemoteIP:  "[demo_redact]",
+		RemoteIP:  "0.0.0.0",
 		Referer:   c.Request().Referer(),
 		UserAgent: c.Request().UserAgent(),
 		Meta:      meta,

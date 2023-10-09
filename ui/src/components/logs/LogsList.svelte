@@ -89,7 +89,7 @@
                 <SortHeader disable class="col-field-method" name="method" bind:sort>
                     <div class="col-header-content">
                         <i class="ri-global-line" />
-                        <span class="txt">Method</span>
+                        <span class="txt">Método</span>
                     </div>
                 </SortHeader>
 
@@ -124,7 +124,7 @@
                 <SortHeader disable class="col-type-date col-field-created" name="created" bind:sort>
                     <div class="col-header-content">
                         <i class={CommonHelper.getFieldTypeIcon("date")} />
-                        <span class="txt">Created</span>
+                        <span class="txt">Criado</span>
                     </div>
                 </SortHeader>
 
@@ -195,14 +195,14 @@
                 {:else}
                     <tr>
                         <td colspan="99" class="txt-center txt-hint p-xs">
-                            <h6>No logs found.</h6>
+                            <h6>Nenhum log.</h6>
                             {#if filter?.length}
                                 <button
                                     type="button"
                                     class="btn btn-hint btn-expanded m-t-sm"
                                     on:click={() => (filter = "")}
                                 >
-                                    <span class="txt">Clear filters</span>
+                                    <span class="txt">Limpar filtros</span>
                                 </button>
                             {/if}
                         </td>
@@ -214,7 +214,7 @@
 </HorizontalScroller>
 
 {#if items.length}
-    <small class="block txt-hint txt-right m-t-sm">Showing {items.length} of {totalItems}</small>
+    <small class="block txt-hint txt-right m-t-sm">Vendo {items.length} de {totalItems}</small>
 {/if}
 
 {#if items.length && canLoadMore}
@@ -226,7 +226,7 @@
             class:btn-disabled={isLoading}
             on:click={() => load(currentPage + 1)}
         >
-            <span class="txt">Load more ({totalItems - items.length})</span>
+            <span class="txt">Obter mais ({totalItems - items.length})</span>
         </button>
     </div>
 {/if}

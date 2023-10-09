@@ -116,7 +116,7 @@
                         type: "time",
                         time: {
                             unit: "minute",
-                            tooltipFormat: "DD h a",
+                            tooltipFormat: "DD h mm",
                         },
                         grid: {
                             borderColor: "#dee3e8",
